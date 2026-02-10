@@ -18,8 +18,10 @@ jobs:
           test -f index.html
           echo "index.html trouvé ✅"
 
-      - name: Test HTML (échec volontaire)
+      - name: Test HTML (validation basique)
         run: |
-          echo "Test volontairement en échec..."
-          grep -q "TEXTE_QUI_N_EXISTE_PAS" index.html
+          echo "Validation basique du HTML..."
+          grep -q "<h1>TP DevOps</h1>" index.html
+          echo "OK: le <h1> attendu est présent ✅"
+
           echo "Grep a trouvé le texte.
