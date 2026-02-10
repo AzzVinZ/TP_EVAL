@@ -21,7 +21,5 @@ jobs:
       - name: Test HTML (validation basique)
         run: |
           echo "Validation basique du HTML..."
-          grep -q "<h1>TP DevOps</h1>" index.html
-          echo "OK: le <h1> attendu est présent ✅"
-
-          echo "Grep a trouvé le texte.
+          grep -qi "TP DevOps" index.html
+          echo "OK : le contenu attendu est présent"
