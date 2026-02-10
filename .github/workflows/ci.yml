@@ -1,0 +1,25 @@
+name: CI - Test HTML
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  test-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Vérifier la présence du fichier
+        run: |
+          test -f index.html
+          echo "index.html trouvé ✅"
+
+      - name: Test HTML (échec volontaire)
+        run: |
+          echo "Test volontairement en échec..."
+          grep -q "TEXTE_QUI_N_EXISTE_PAS" index.html
+          echo "Grep a trouvé le texte.
